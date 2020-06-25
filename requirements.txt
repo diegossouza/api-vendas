@@ -1,0 +1,6 @@
+flask
+SQLAlchemy
+mysqlclient
+py-bcrypt
+Flask-JWT
+requests

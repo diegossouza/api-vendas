@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  aplicacao:
+    build:
+      context: .
+      dockerfile: ./docker/aplicacao/Dockerfile
+    volumes:
+      - './src:/var/www/api-vendas'
+    ports:
+      - '5000:5000'
+    links:
+        - mysql:mysql
+
+  mysql:
+    image: mysql
+    environment:
+      - MYSQL_DATABASE=vendas
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=pass
+    ports:
+      - '3306:3306'
